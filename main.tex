@@ -1,0 +1,170 @@
+\documentclass[11pt, aspectratio=169, modernfonts]{beamer}
+%-----------------------------------------------------------------------
+% LaTeX packages
+%-----------------------------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[ngerman]{babel}
+\usepackage{beamerprosper}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{latexsym}
+\usepackage{listings}
+\usepackage{times}
+\usepackage{url}
+\usepackage{xspace}
+\usepackage{booktabs}
+\usepackage{svg}
+\usepackage{caption}
+\usepackage{wrapfig}
+\usepackage{algorithmicx}
+\usepackage{algorithm}
+\usepackage{multicol}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{lstautogobble}
+\usepackage{csquotes}
+
+\usepackage[
+backend=biber,
+natbib=true,
+style=numeric,
+sorting=none
+]{biblatex}
+
+\addbibresource{sources.bib}
+
+%-----------------------------------------------------------------------
+% LaTeX Theme
+%-----------------------------------------------------------------------
+
+\input{theme.tex}
+\usefonttheme{default} 
+
+%-----------------------------------------------------------------------
+% Custom Commands
+%-----------------------------------------------------------------------
+
+% Adds a slide with the specified text. It does not show any header or footer.
+\newcommand{\finalslide}[1]{%
+  \part{} % no section title in footer for this slides
+  \begin{frame}[noframenumbering, plain]
+    \begin{center}
+      \vfill
+      \Huge #1
+      \vfill
+    \end{center}
+  \end{frame}
+}
+
+% ---------------------------------------------------------------------
+% Document Title
+% ---------------------------------------------------------------------
+
+\title[Bite the Bytes]{Bite The Bytes - Informatik studieren in Weimar}
+\subtitle{\Large{Smart Home Hacking}}
+\author[M. Almert]{Marcus Almert}
+\institute[Bauhaus-Universität Weimar]{Bauhaus-Universität Weimar\\[0.5cm] Fakultät Medien}
+
+\date{4. November 2022}
+\raggedright
+\AtBeginSection{\frame{\sectionpage}}
+
+% ---------------------------------------------------------------------
+\begin{document}
+% ---------------------------------------------------------------------
+
+\maketitle
+
+\begin{frame}{Table of Contents}
+    \tableofcontents
+\end{frame}
+
+% ---------------------------------------------------------------------
+% Document Content
+% ---------------------------------------------------------------------
+
+\section{Was ist smart Home?}\label{sec:was-ist-smart-home?}
+
+\begin{frame}{Was ist smart Home}
+  \begin{itemize}
+    \item Geräte, die miteinander kommunizieren, agieren und zentral gesteuert sind
+    \item Kommunikation erfolgt meist über Bluetooth oder WIFI
+    \item Steuerung durch Apps und Sprachassistenten
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Vorteile von smart Home}
+  \begin{itemize}
+    \item Erhöhung der Lebens- und Wohnqualität durch intelligente Automatisierungen
+    \item Steigerung der Energieeffizienz
+    \item
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Smart Home Beispiele}
+
+\end{frame}
+
+\begin{frame}{Smarte Türklingeln}
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \begin{itemize}
+        \item Bestandteile:
+        \begin{itemize}
+          \item Kamera
+          \item Bewegungssensor
+          \item Mikrofon und Lautsprecher
+          \item Klingeltaste
+        \end{itemize}
+        \vspace{0.2cm}
+        \item Funktionen:
+        \begin{itemize}
+          \item Live Video und Ton über App
+          \item Benachrichtigungen bei Bewegungen
+          \item Anruf auf Smartphone bei Klingeln
+          \item Automatisches Aufnehmen von Fotos und Videos
+        \end{itemize}
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.4\textwidth}
+      \begin{figure}
+        \centering
+        \includegraphics[width=0.5\linewidth]{images/doorbell}\label{fig:doorbell}
+      \end{figure}
+    \end{column}
+  \end{columns}
+  \hfill [1]
+\end{frame}
+  
+\section{Smart Home Hacking}
+
+  \begin{frame}{Was bedeutet Hacking?}
+    \begin{itemize}
+      \item Was sind die Ziele?
+      \begin{itemize}
+        \item Unerlaubter Zugriff auf Ressourcen (Daten und Funktionen)
+        \item Denial of Service
+        \item Einschleusen von Schadsoftware (z.B.~Viren, Trojaner, Ransomware)
+        \item Infiltration von weiteren Geräten
+      \end{itemize}
+      \item Was sind die ersten Schritte?
+      \begin{itemize}
+        \item System und Gerät Verstehen
+        \item Angriffspunkte und Schwachstellen Identifizieren
+        \item
+      \end{itemize}
+    \end{itemize}
+  \end{frame}
+
+
+% ---------------------------------------------------------------------
+% Bibliography
+% ---------------------------------------------------------------------
+
+%\begin{frame}[noframenumbering,allowframebreaks]{Sources}
+%    \printbibliography[title = {Sources}, heading = none]
+%\end{frame}
+
+\end{document}
