@@ -8,7 +8,8 @@
 \usepackage[ngerman]{babel}
 \usepackage{beamerprosper}
 \usepackage{color}
-\usepackage{graphicx}
+\usepackage{stackengine,graphicx}
+
 \usepackage{latexsym}
 \usepackage{listings}
 \usepackage{times}
@@ -26,10 +27,10 @@
 \usepackage{csquotes}
 
 \usepackage[
-backend=biber,
-natbib=true,
-style=numeric,
-sorting=none
+    backend=biber,
+    natbib=true,
+    style=numeric,
+    sorting=none
 ]{biblatex}
 
 \addbibresource{sources.bib}
@@ -39,7 +40,7 @@ sorting=none
 %-----------------------------------------------------------------------
 
 \input{theme.tex}
-\usefonttheme{default} 
+\usefonttheme{default}
 
 %-----------------------------------------------------------------------
 % Custom Commands
@@ -47,21 +48,21 @@ sorting=none
 
 % Adds a slide with the specified text. It does not show any header or footer.
 \newcommand{\finalslide}[1]{%
-  \part{} % no section title in footer for this slides
-  \begin{frame}[noframenumbering, plain]
-    \begin{center}
-      \vfill
-      \Huge #1
-      \vfill
-    \end{center}
-  \end{frame}
+    \part{} % no section title in footer for this slides
+    \begin{frame}[noframenumbering, plain]
+        \begin{center}
+            \vfill
+            \Huge #1
+            \vfill
+        \end{center}
+    \end{frame}
 }
 
 % ---------------------------------------------------------------------
 % Document Title
 % ---------------------------------------------------------------------
 
-\title[Bite the Bytes]{Bite The Bytes - Informatik studieren in Weimar}
+\title[Smart Home Hacking]{Bite The Bytes - Informatik studieren in Weimar}
 \subtitle{\Large{Smart Home Hacking}}
 \author[M. Almert]{Marcus Almert}
 \institute[Bauhaus-Universität Weimar]{Bauhaus-Universität Weimar\\[0.5cm] Fakultät Medien}
@@ -74,89 +75,174 @@ sorting=none
 \begin{document}
 % ---------------------------------------------------------------------
 
-\maketitle
+    \maketitle
 
-\begin{frame}{Table of Contents}
-    \tableofcontents
-\end{frame}
+%    \begin{frame}{Table of Contents}
+%        \tableofcontents
+%    \end{frame}
 
 % ---------------------------------------------------------------------
 % Document Content
 % ---------------------------------------------------------------------
-
-\section{Was ist smart Home?}\label{sec:was-ist-smart-home?}
-
-\begin{frame}{Was ist smart Home}
-  \begin{itemize}
-    \item Geräte, die miteinander kommunizieren, agieren und zentral gesteuert sind
-    \item Kommunikation erfolgt meist über Bluetooth oder WIFI
-    \item Steuerung durch Apps und Sprachassistenten
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Vorteile von smart Home}
-  \begin{itemize}
-    \item Erhöhung der Lebens- und Wohnqualität durch intelligente Automatisierungen
-    \item Steigerung der Energieeffizienz
-    \item
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Smart Home Beispiele}
-
-\end{frame}
-
-\begin{frame}{Smarte Türklingeln}
-  \begin{columns}
-    \begin{column}{0.6\textwidth}
-      \begin{itemize}
-        \item Bestandteile:
+    \begin{frame}{Vorwort}
         \begin{itemize}
-          \item Kamera
-          \item Bewegungssensor
-          \item Mikrofon und Lautsprecher
-          \item Klingeltaste
+            \item
+            \item \enquote{Hacken} von dritten ist \textbf{illegal}!
+            \item Experimentelle Angriffe ausschließlich auf eigene Geräte und Accounts
         \end{itemize}
-        \vspace{0.2cm}
-        \item Funktionen:
+    \end{frame}
+
+
+    \section{Was ist Smart Home?}\label{sec:was-ist-smart-home?}
+
+    \begin{frame}{Was ist Smart Home?}
         \begin{itemize}
-          \item Live Video und Ton über App
-          \item Benachrichtigungen bei Bewegungen
-          \item Anruf auf Smartphone bei Klingeln
-          \item Automatisches Aufnehmen von Fotos und Videos
+            \item Geräte, die miteinander kommunizieren, agieren und zentral gesteuert sind\\[.4cm]
+            \item Kommunikation erfolgt meist über Bluetooth oder WIFI\\[.4cm]
+            \item Steuerung durch Apps und Sprachassistenten\\[.4cm]
         \end{itemize}
-      \end{itemize}
-    \end{column}
+    \end{frame}
 
-    \begin{column}{0.4\textwidth}
-      \begin{figure}
-        \centering
-        \includegraphics[width=0.5\linewidth]{images/doorbell}\label{fig:doorbell}
-      \end{figure}
-    \end{column}
-  \end{columns}
-  \hfill [1]
-\end{frame}
-  
-\section{Smart Home Hacking}
+    \begin{frame}{Vorteile von Smart Home}
+        \begin{itemize}
+            \item Erhöhung der Lebens- und Wohnqualität (smarte Glühbirne)\\[.4cm]
+            \item Steigerung der Energieeffizienz (smarte Thermostate)\\[.4cm]
+            \item Verbesserung der Sicherheit (smarte Überwachungskameras)\\[.4cm]
+        \end{itemize}
+    \end{frame}
 
-  \begin{frame}{Was bedeutet Hacking?}
-    \begin{itemize}
-      \item Was sind die Ziele?
-      \begin{itemize}
-        \item Unerlaubter Zugriff auf Ressourcen (Daten und Funktionen)
-        \item Denial of Service
-        \item Einschleusen von Schadsoftware (z.B.~Viren, Trojaner, Ransomware)
-        \item Infiltration von weiteren Geräten
-      \end{itemize}
-      \item Was sind die ersten Schritte?
-      \begin{itemize}
-        \item System und Gerät Verstehen
-        \item Angriffspunkte und Schwachstellen Identifizieren
-        \item
-      \end{itemize}
-    \end{itemize}
-  \end{frame}
+    \begin{frame}{Smarte Türklingeln}
+        \begin{columns}
+            \begin{column}{0.6\textwidth}
+                \begin{itemize}
+                    \item Bestandteile:
+                    \begin{itemize}
+                        \item Kamera
+                        \item Bewegungssensor
+                        \item Mikrofon und Lautsprecher
+                        \item Klingeltaste
+                    \end{itemize}
+                    \vspace{0.2cm}
+                    \item Funktionen:
+                    \begin{itemize}
+                        \item Fernzugriff via App (Account notwendig)
+                        \item Live Video und Ton Stream
+                        \item Benachrichtigungen bei Bewegungen
+                        \item Anruf auf Smartphone bei Klingeln
+                        \item Automatisches Aufnehmen von Fotos und Videos
+                    \end{itemize}
+                \end{itemize}
+            \end{column}
+
+            \begin{column}{0.4\textwidth}
+                \begin{figure}
+                    \centering
+                    \includegraphics[width=0.5\linewidth]{images/doorbell}\label{fig:doorbell}
+                \end{figure}
+            \end{column}
+        \end{columns}
+        \hfill [1]
+    \end{frame}
+
+
+    \section{Smart Home Hacking}\label{sec:smart-home-hacking}
+
+    \begin{frame}{Ziele und Vorgehensweise}
+        \begin{itemize}
+            \item Ziele:
+            \begin{itemize}
+                \item Unerlaubter Zugriff auf Ressourcen (Daten und Funktionen)
+                \item Denial of Service
+                \item Einschleusen von Schadsoftware (z.B.~Viren, Trojaner, Ransomware)
+                \item Infiltration von weiteren Geräten
+            \end{itemize}
+            \item Vorgehensweise:
+            \begin{itemize}
+                \item System und Gerät Verstehen
+                \item Angriffspunkte und Schwachstellen Identifizieren
+                \item Angriffe Ausführen
+                \item Auswertung
+            \end{itemize}
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Vorgehensweise am Beispiel von smarten Türklingeln}
+        \begin{figure}
+            \includegraphics[height=0.8\textheight]{images/function.drawio}\label{fig:function}
+        \end{figure}
+    \end{frame}
+
+    \begin{frame}{Person-in-the-middle Attacke}
+        \begin{figure}
+            \includegraphics[height=0.8\textheight]{images/pitm.drawio}\label{fig:pitm}
+        \end{figure}
+    \end{frame}
+
+    \begin{frame}[fragile]{Ergebnis der Person-in-the-middle Attacke}
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                Kommunikation verletzt Prinzipien der Sicherheit:
+                \begin{itemize}
+                    \item Vertraulichkeit
+                    \item Integrität
+                    \item Authentizität
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.5\textwidth}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}[fragile]{Ergebnis der Person-in-the-middle Attacke}
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                Kommunikation verletzt Prinzipien der Sicherheit:
+                \begin{itemize}
+                    \item Vertraulichkeit
+                    \item Integrität
+                    \item Authentizität
+                \end{itemize}
+            \end{column}
+            \break
+            \begin{column}{0.5\textwidth}
+                Beispiel für abgehörte Daten:
+                \begin{lstlisting}[basicstyle=\ttfamily, label={lst:sign-in}]
+POST /login HTTP/2.0
+    Host:       api.gdxp.com
+    username:   <zensiert>
+    password:   <zensiert>
+                \end{lstlisting}
+            \end{column}
+
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}{Auswertung des Angriffs I}
+        \textbf{Teil 1: Auf was haben wir unerlaubten Zugriff?}\\[0.2cm]
+        \begin{itemize}
+            \item Steuerungsaccount
+            \item[$\rightarrow$] Fotos und Videos im Cloudspeicher
+            \item[$\rightarrow$] Live Video und Audio Stream
+            \item[$\rightarrow$] Geräte und Account Einstellungen
+        \end{itemize}
+    \end{frame}
+
+
+    \begin{frame}{Auswertung des Angriffs II}
+        \textbf{Teil 2: Was können wir damit machen?}\\[0.2cm]
+        \begin{itemize}
+            \item Identifizierung des Ortes (durch Kamera, WIFI, IP-Adresse)
+            \item Bewegungsprofil Erstellen: Wann ist wer wo?
+            \item Accounteinstellungen: Passwort ändern)
+            \item Geräteeinstellungen (Kamera und Mikrofon ausschalten)
+            \item Cloudspeicher: Diebstahl und Löschen von Daten,
+            \item Zugriff zu Accounts mit gleichen oder ähnlichen Zugangsdaten
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Fazit}
+
+    \end{frame}
 
 
 % ---------------------------------------------------------------------
